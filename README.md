@@ -1,40 +1,72 @@
-# Echo Walrus Telegram Bot
+# Echo Walrus - Smart Telegram Bot
 
-This is a simple Telegram bot that echo back messages what you send to it. The bot is build with Python and use the python-telegram-bot library.
+This is a Telegram bot that can talk with you using AI (Artificial Intelligence). It uses Gemini AI to understand and answer your messages.
 
-## Features
+## What This Bot Can Do
 
-- Echo back messages
-- Simple commands like /start and /help
-- Easy to use and setup
+- 🤖 Talks with you using AI
+- 💬 Has simple commands like /start and /help
+- 🔄 Answers your messages quickly
+- 🛡️ Handles errors well
+- 🔌 Easy to add new AI features
+
+## What You Need
+
+- Python 3.13 or newer
+- A Telegram Bot Token (get it from @BotFather)
+- A Gemini API Key
+- Docker and Docker Compose (if you want to use containers)
 
 ## How to Install
 
-1. First, you need to have Docker install on your computer
-2. Clone this repository to your local machine
-3. Build the Docker image:
-   ```bash
-   docker build -t echo-walrus .
-   ```
-4. Create a new bot on Telegram using BotFather and get your token
-5. Run the bot with your token:
-   ```bash
-   docker run -e TELEGRAM_BOT_TOKEN='your-token-here' echo-walrus
-   ```
+1. Get the code:
+```bash
+git clone https://github.com/yourusername/echo-walrus.git
+cd echo-walrus
+```
+
+2. Set up your keys:
+```bash
+cp .env.example .env
+```
+Open the `.env` file and add your keys:
+```
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+3. Start the bot:
+```bash
+docker compose up -d
+```
 
 ## How to Use
 
-1. The bot will start automatically when you run the Docker container
-2. Open Telegram and search for your bot
-3. Send any message and the bot will repeat it back to you
-4. Use /start to begin and /help to see help information
+After starting, the bot will be ready to talk with you. Send `/start` to begin.
 
-## Requirements
+## Bot Commands
 
-- Docker installed on your system
-- A Telegram account
-- A bot token from BotFather
+- `/start` - Start talking with the bot
+- `/help` - Get help information
+
+## Files in This Project
+
+```
+echo_walrus/
+├── app/
+│   ├── bot/
+│   │   └── telegram_bot.py
+│   └── ia_models/
+│       ├── base.py
+│       ├── gemini.py
+│       └── factory.py
+├── main.py
+├── setup.py
+├── docker-compose.yml
+├── Dockerfile
+└── README.md
+```
 
 ## License
 
-This project is under MIT License. You can use it for free for any purpose.
+This project uses the MIT License. You can use it for free.
